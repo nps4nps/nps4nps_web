@@ -1,0 +1,100 @@
+[build-system]
+requires = ["uv_build >= 0.11.7, <0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "app"
+module-root = ""
+
+[project]
+name = "nps4nps-web"
+version = "0.0.1"
+description = "Visualization and validation API service for NPs4Nps project"
+readme = "README.md"
+requires-python = ">=3.12.0"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Mitja M. Zdouc", email = "zdoucmm@gmail.com" }
+]
+
+dependencies = [
+    "fastapi[standard]~=0.128.0",
+    "uvicorn~=0.40.0",
+    "pydantic-settings~=2.12",
+    "pygithub>=2.8.1",
+    "itsdangerous>=2.2.0",
+]
+
+[project.urls]
+"Repository" = "https://github.com/nps4nps/nps4nps_web"
+
+[project.optional-dependencies]
+dev = [
+    "pre-commit>=4.6.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.13",
+]
+
+# Below are settings for different tools we use for testing and linting
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+    # flake8-bugbear
+    "B",
+    # flake8-comprehensions
+    "C4",
+    # flake8-eradicate/eradicate
+    "ERA",
+    # isort
+    "I",
+    # pep8-naming
+    "N",
+    # flake8-pie
+    "PIE",
+    # pygrep
+    "PGH",
+    # ruff checks
+    "RUF",
+    # flake8-simplify
+    "SIM",
+    # flake8-type-checking
+    "TCH",
+    # flake8-tidy-imports
+    "TID",
+    # pyupgrade
+    "UP",
+]
+ignore = [
+    # whitespace-before-punctuation
+    "E203",
+    # unneccesary True False
+    "SIM210",
+    # combine nested if conditionals
+    "SIM102",
+    # if-else block
+    "SIM108",
+    # Unnecessary `set` comprehension
+    "C416",
+    # Incompatible (?) with FastAPI
+    "B008",
+    # C408 Unnecessary `dict` call (rewrite as a literal)
+    "C408",
+    # upper-case vars
+    "N806",
+    # breaks Pydantic/FastAPI
+    "UP007"
+]
+
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "tests",
+]
+pythonpath = [
+    "."
+]
