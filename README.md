@@ -19,17 +19,13 @@ The web app focuses on two services:
 
 ## Quickstart guide
 
-While the [MITE Database](https://mite.bioinformatics.nl/) is primarily intended to be used online, it can also be used offline.
-
 ### Installation Guide
 
 *Nota bene: while this application should work on any OS, it has only been tested on Ubuntu Linux 20.04 and 22.04.*
 
 Assuming that Docker is installed:
 
-```commandline
-docker run -p 8000:8000 ghcr.io/nps4nps/nps4nps_web:latest
-```
+TBA
 
 You can now use the app running on http://127.0.0.1:8000/.
 
@@ -37,7 +33,7 @@ You can now use the app running on http://127.0.0.1:8000/.
 
 ### License
 
-`mite_web` is an open source tool licensed under the MIT license (see [LICENSE](LICENSE)).
+This app is an open source tool licensed under the MIT license (see [LICENSE](LICENSE)).
 
 ### Publications
 
@@ -53,7 +49,7 @@ TBA
 
 *Nota bene: while this application should work on any OS, it has only been tested on Ubuntu Linux 20.04 and 22.04.*
 
-Since `mite_web 2.0.0`, the application follows 12-factor-app principles. 
+The application follows 12-factor-app principles. 
 
 All data is being queried from the nanopublications server network. Therefore, the app itself is stateless.
 
@@ -81,7 +77,7 @@ uv run pytest
 ```
 Tests will also run via `prek` and GitHub Actions on PRs into main
 
-3Run docker compose
+3. Run docker compose
 ```commandline
 docker compose -f dev-compose.yml build
 docker compose -f dev-compose.yml up --watch
@@ -99,7 +95,6 @@ In these cases, terminate with `ctrl+c` and rebuild.
 The main software artifact produced by this repo are Docker containers deposited in the GitHub Container Repository.
 These containers are created automatically via GitHub Actions on every new Release.
 
-There are two "types" of releases for Mite Web
 
 ### Production build
 
