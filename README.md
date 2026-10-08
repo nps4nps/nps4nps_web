@@ -72,14 +72,14 @@ Variables are read from an .env file (see [.env.example](.env.example)).
 ```commandline
 git@github.com:nps4nps/nps4nps_web.git
 uv sync --extra dev
-uv run pre-commit install
+uv run prek install -f
 ```
 
 2. Run tests
 ```commandline
 uv run pytest
 ```
-Tests will also run via `pre-commit` and GitHub Actions on PRs into main
+Tests will also run via `prek` and GitHub Actions on PRs into main
 
 3Run docker compose
 ```commandline
