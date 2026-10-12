@@ -6,6 +6,3 @@ tests/
 .pytest_cache/
 .ruff_cache/
 .venv/
-users.csv
-README.md
-LICENSE
