@@ -1,0 +1,26 @@
+services:
+  app:
+    image: ghcr.io/nps4nps/nps4nps_web:latest
+    restart: unless-stopped
+    env_file: .env
+    networks:
+      - app_network
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./validation.nanopub.univie.ac.at.fullchain.pem:/etc/nginx/validation.nanopub.univie.ac.at.fullchain.pem:ro
+      - ./validation.nanopub.univie.ac.at.privkey.pem:/etc/nginx/validation.nanopub.univie.ac.at.privkey.pem:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    networks:
+      - app_network
+    restart: unless-stopped
+
+networks:
+  app_network:
+    driver: bridge
