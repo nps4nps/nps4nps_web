@@ -28,9 +28,11 @@ The web app focuses on two services:
 
 Assuming that Docker is installed:
 
-TBA
+`docker run -p 8000:8000 ghcr.io/nps4nps/nps4nps_web:latest`
 
 You can now use the app running on http://127.0.0.1:8000/.
+
+This instance does not set a secret key is not used for production builds.
 
 ## Attribution
 
