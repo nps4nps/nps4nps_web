@@ -1,5 +1,9 @@
+import logging
+
 from pydantic import model_validator
 from pydantic_settings import BaseSettings
+
+logger = logging.getLogger(__name__)
 
 
 class Settings(BaseSettings):
@@ -14,7 +18,7 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def check_secret(self):
         if self.secret == "dev":
-            raise RuntimeError("Error: Secret key not set")
+            logger.error("Error: Secret key not set - do not use in production!")
         return self
 
     @property

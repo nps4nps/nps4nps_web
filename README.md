@@ -28,9 +28,11 @@ The web app focuses on two services:
 
 Assuming that Docker is installed:
 
-TBA
+`docker run -p 8000:8000 ghcr.io/nps4nps/nps4nps_web:latest`
 
 You can now use the app running on http://127.0.0.1:8000/.
+
+This instance does not set a secret key and must not be used for production builds.
 
 ## Attribution
 
@@ -112,7 +114,9 @@ If parameters are not provided, the application will automatically start in deve
 
 #### lisc.univie.ac.at
 
-- Download the content of the [lisc](production/lisc) directory (e.g. with `curl --output <filename> <URL>`)
+- Download the content of the [lisc](production/lisc) directory in an appropriate location (e.g. with `curl --output <filename> <URL>`)
+- Set up routing in the `/etc/nginx/` directory on the VM
 - Specify the desired container version in [compose.yml](production/lisc/compose.yml)
 - Add parameters in an `.env` file (see [.env.example](.env.example)
 - Run `docker compose -f compose.yml up`
+- Check the status/visibility on web
