@@ -29,5 +29,14 @@ class Settings(BaseSettings):
     def app_name(self) -> str:
         return "NPs4NPs-Web"
 
+    @property
+    def redis_url(self) -> str:
+        return "redis://redis:6379/0"
+
+    @property
+    def task_time_limit(self) -> int:
+        """Celery task time limit in seconds"""
+        return 360
+
 
 settings = Settings()
