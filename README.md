@@ -93,6 +93,14 @@ You can now use the database running on http://127.0.0.1:8000/.
 Sometimes, the hot reloading doesn't work perfectly (e.g. dependency updates).
 In these cases, terminate with `ctrl+c` and rebuild.
 
+#### Registering tasks and routes
+
+The application uses `celery` and `redis` to process long-running tasks (e.g. SPARQL queries and other network calls)
+To add such tasks, follow these steps:
+
+- Define a function in `app.services.tasks`
+
+
 #### Deployment Checklist
 
 *Nota bene: releases must be prepared locally to update the `uv.lock` file; else, builds fail.*
