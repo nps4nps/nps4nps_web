@@ -1,6 +1,7 @@
 import logging
+from pathlib import Path
 
-from pydantic import model_validator
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings
 
 logger = logging.getLogger(__name__)
@@ -14,6 +15,7 @@ class Settings(BaseSettings):
     """
 
     secret: str = "dev"
+    static_dir: Path = Field(default_factory=lambda: Path("/app/app/static"))
 
     @model_validator(mode="after")
     def check_secret(self):
