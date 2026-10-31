@@ -47,5 +47,10 @@ class Settings(BaseSettings):
         """Celery task max retries"""
         return 3
 
+    @property
+    def celery_tasks_import(self) -> str:
+        """Location to discover celery tasks"""
+        return "app.services"
+
 
 settings = Settings()
