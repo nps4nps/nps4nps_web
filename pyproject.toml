@@ -8,7 +8,7 @@ module-root = ""
 
 [project]
 name = "nps4nps-web"
-version = "0.0.1"
+version = "0.0.2"
 description = "Visualization and validation API service for NPs4Nps project"
 readme = "README.md"
 requires-python = ">=3.12.0"
