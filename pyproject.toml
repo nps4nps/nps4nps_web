@@ -36,6 +36,9 @@ dev = [
     "ruff>=0.15.13",
 ]
 
+[dependency-groups]
+dev = []
+
 # Below are settings for different tools we use for testing and linting
 
 [tool.ruff]

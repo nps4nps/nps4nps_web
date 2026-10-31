@@ -30,13 +30,22 @@ class Settings(BaseSettings):
         return "NPs4NPs-Web"
 
     @property
-    def redis_url(self) -> str:
+    def broker_url(self) -> str:
         return "redis://redis:6379/0"
+
+    @property
+    def backend_url(self) -> str:
+        return "redis://redis:6379/1"
 
     @property
     def task_time_limit(self) -> int:
         """Celery task time limit in seconds"""
         return 360
+
+    @property
+    def max_retries(self) -> int:
+        """Celery task max retries"""
+        return 3
 
 
 settings = Settings()

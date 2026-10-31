@@ -10,6 +10,13 @@ services:
       - redis
     networks:
       - app_network
+    develop:
+      watch:
+        - action: sync+restart
+          path: .
+          target: /app
+          ignore:
+            - .venv/
 
   app:
     # Build the image from the Dockerfile in the current directory
