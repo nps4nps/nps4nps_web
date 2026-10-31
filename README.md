@@ -32,7 +32,7 @@ Assuming that Docker is installed:
 
 You can now use the app running on http://127.0.0.1:8000/.
 
-This instance does not set a secret key is not used for production builds.
+This instance does not set a secret key and must not be used for production builds.
 
 ## Attribution
 
