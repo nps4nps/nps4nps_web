@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>Add</h1>
+
+<form method="post" id="addition" action="{{ url_for('add_numbers_submit') }}">
+<div class="form-floating">
+  <input id="x" name="x" class="form-control" minlength="1" type="number" required>
+  <label for="x" class="form-label">Number for X</label>
+</div>
+<div class="form-floating">
+  <input id="y" name="y" class="form-control" minlength="1" type="number" required>
+  <label for="y" class="form-label">Number for Y</label>
+</div>
+<div class="row justify-content-center my-4">
+    <div class="col-auto d-flex justify-content-center align-items-center p-0">
+        <button type="submit" id="long-addition" class="btn btn-primary">Perform long job</button>
+    </div>
+</div>
+</form>
+
+
+{% endblock %}

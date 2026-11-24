@@ -1,5 +1,7 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
-class DummyModel(BaseModel):
-    sleepint: int = 1
+# TODO: remove this model
+class AddModel(BaseModel):
+    x: int = Field(...)
+    y: int = Field(...)

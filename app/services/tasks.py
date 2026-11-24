@@ -3,7 +3,6 @@ import time
 
 from app.core.celery_app import celery
 from app.core.config import settings
-from app.schemas.visualization import DummyModel
 
 logger = logging.getLogger(__name__)
 
@@ -15,10 +14,21 @@ logger = logging.getLogger(__name__)
     name="app.services.tasks.heavy_add",
 )
 def heavy_add(self, x, y):
+    total_steps = 50
     try:
-        dummy = DummyModel()
+        for i in range(total_steps):
+            time.sleep(0.2)
+
+            self.update_state(
+                state="PROGRESS",
+                meta={
+                    "current": i + 1,
+                    "total": total_steps,
+                    "percent": int((i + 1) / total_steps * 100),
+                    "message": f"Processing step {i + 1}...",
+                },
+            )
         logger.info(f"Processing {x} + {y}")
-        time.sleep(dummy.sleepint)
         return x + y
     except Exception as exc:
         logger.error(f"Error: {exc}, retrying...")
