@@ -14,41 +14,73 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 
 from app.core.celery_app import celery
 from app.core.templates import templates
-from app.schemas.add import AddModel
-from app.tasks.add import heavy_add
+from app.schemas.sample_mapping import SampleMapping
+from app.tasks.sampling import sample_mapping
 
 router = APIRouter(prefix="/sampling", tags=["views"])
 
 
-@router.get("/sample-map", include_in_schema=False, response_class=HTMLResponse)
-async def sample_map(request: Request):
-    pass
+@router.get("/", include_in_schema=False, response_class=HTMLResponse)
+async def get_map_sample(request: Request):
+    return templates.TemplateResponse(request=request, name="sample-map-get.html")
 
 
-# TODO (MMZ): implement sample_map html with a post request
+@router.post("/submit", include_in_schema=False, response_class=RedirectResponse)
+async def submit_map_sample(p: Annotated[SampleMapping, Form()]):
+    task = sample_mapping.delay(p.query)
+    return RedirectResponse(
+        url=f"{router.prefix}/{task.id}/waiting",
+        status_code=303,
+    )
 
 
-@router.post("/sample-map/query")
-async def query_sample_map(request: Request):
-    pass
+@router.get("/{job_id}/waiting", include_in_schema=False, response_class=HTMLResponse)
+async def waiting_map_sample(request: Request, job_id: str):
+    return templates.TemplateResponse(
+        request=request,
+        name="sample-map-waiting.html",
+        context={
+            "job_id": job_id,
+        },
+    )
 
 
-# TODO (MMZ): route to get params and post-request; read from URL into pydantic schema
-# TODO (MMZ): run as a celery registered task
-# TODO(MMZ): route to receive post request and start of job, sends a waiting html+js site
+@router.websocket("/ws/jobs/{job_id}")
+async def job_websocket(websocket: WebSocket, job_id: str):
+    await websocket.accept()
+
+    try:
+        task = AsyncResult(job_id, app=celery)
+
+        while True:
+            state = await asyncio.to_thread(
+                lambda: {"state": task.state, "info": task.info}
+            )
+
+            await websocket.send_json(state)
+
+            if state["state"] in ("SUCCESS", "FAILURE", "REVOKED"):
+                break
+
+            await asyncio.sleep(1)
+
+    except WebSocketDisconnect:
+        pass
 
 
-@router.get("/sample-map/{task_id}")
-async def get_sample_map(request: Request):
-    pass
+@router.get("/{job_id}/results")
+async def job_results(request: Request, job_id: str):
+    task = AsyncResult(job_id, app=celery)
 
-
-# TODO endpoint for websocket polling?
-@router.get("/status/{task_id}")
-async def get_status(task_id: str):
-    result = celery.AsyncResult(task_id)
-    return {
-        "task_id": task_id,
-        "status": result.status,
-        "result": result.result if result.ready() else None,
-    }
+    if task.state != "SUCCESS":
+        raise HTTPException(
+            status_code=404,
+            detail="Results are not available",
+        )
+    return templates.TemplateResponse(
+        "sample-map-results.html",
+        {
+            "request": request,
+            "result": task.result,
+        },
+    )

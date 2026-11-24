@@ -52,7 +52,7 @@ class Settings(BaseSettings):
     @property
     def celery_tasks_import(self) -> list[str]:
         """Location to discover celery tasks"""
-        return ["app.tasks.add"]
+        return ["app.tasks.add", "app.tasks.sampling"]
 
 
 settings = Settings()
