@@ -54,5 +54,10 @@ class Settings(BaseSettings):
         """Location to discover celery tasks"""
         return ["app.tasks.add", "app.tasks.sampling"]
 
+    @property
+    def nanopublication_endpoint(self) -> str:
+        """URL to send SPARQL query to"""
+        return "https://query.knowledgepixels.com/repo/full"
+
 
 settings = Settings()
