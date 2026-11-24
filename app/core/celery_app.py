@@ -8,4 +8,4 @@ celery = Celery(
     backend=settings.backend_url,
 )
 celery.conf.update(task_track_started=True, task_time_limit=settings.task_time_limit)
-celery.autodiscover_tasks(["app.services"])
+celery.autodiscover_tasks(settings.celery_tasks_import)

@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 @celery.task(
     bind=True,
     max_retries=settings.max_retries,
-    name="app.services.tasks.heavy_add",
+    name="app.tasks.add.heavy_add",
 )
 def heavy_add(self, x, y):
     total_steps = 50

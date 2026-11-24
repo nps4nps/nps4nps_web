@@ -98,7 +98,8 @@ In these cases, terminate with `ctrl+c` and rebuild.
 The application uses `celery` and `redis` to process long-running tasks (e.g. SPARQL queries and other network calls)
 To add such tasks, follow these steps:
 
-- Define a function in `app.services.tasks`
+- Create a Python file in `app.tasks` and register tasks
+- Register the file containing tasks for autodiscovery in the property `celery_tasks_import()` found in `app.core.config`
 
 
 #### Deployment Checklist

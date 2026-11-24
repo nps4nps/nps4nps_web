@@ -32,7 +32,7 @@
         : "ws:";
 
     const ws = new WebSocket(
-        `${protocol}//${window.location.host}/visualization/ws/jobs/${jobId}`
+        `${protocol}//${window.location.host}/add/ws/jobs/${jobId}`
     );
 
     ws.onmessage = function(event) {
@@ -63,7 +63,7 @@
 
             ws.close();
 
-            window.location.href = `/visualization/jobs/${jobId}/results`;
+            window.location.href = `/add/jobs/${jobId}/results`;
         }
 
         else if (data.state === "FAILURE") {
