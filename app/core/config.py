@@ -59,5 +59,10 @@ class Settings(BaseSettings):
         """URL to send SPARQL query to"""
         return "https://query.knowledgepixels.com/repo/full"
 
+    @property
+    def request_timeout(self) -> int:
+        """Max time in seconds to wait for an API call"""
+        return 10
+
 
 settings = Settings()

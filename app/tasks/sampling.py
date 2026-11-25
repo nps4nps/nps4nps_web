@@ -27,7 +27,6 @@ def sample_mapping(self, query: str) -> str:
 
         update("Resolving URIs to labels")
         formatted_results = resolve_uris(formatted_results)
-        time.sleep(2)
 
         update("Rendering the map")
         html = create_sampling_map(formatted_results)
