@@ -3,6 +3,16 @@
 {% block content %}
 
 
-<p>Your task result is {{ result }}.</p>
+<div class="container-fluid mt-4">
+
+    <h2>Sampling map</h2>
+
+    <iframe
+        src="/sampling/{{ job_id }}/document"
+        style="width: 100%; height: 800px; border: none;"
+        title="Sampling map">
+    </iframe>
+
+</div>
 
 {% endblock %}

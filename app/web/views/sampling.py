@@ -74,7 +74,23 @@ async def job_results(request: Request, job_id: str):
 
     if task.state != "SUCCESS":
         raise HTTPException(
-            status_code=404,
-            detail="Results are not available",
+            status_code=409,
+            detail="Map is not ready yet",
         )
+    return templates.TemplateResponse(
+        "sample-map-results.html",
+        {
+            "request": request,
+            "job_id": task.id,
+        },
+    )
+
+
+@router.get("/{job_id}/document")
+async def sampling_document(job_id: str):
+    task = AsyncResult(job_id, app=celery)
+
+    if task.state != "SUCCESS":
+        raise HTTPException(404, "Map not available")
+
     return HTMLResponse(content=task.result)
