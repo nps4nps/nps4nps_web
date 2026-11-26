@@ -1,4 +1,5 @@
 import logging
+import re
 from pathlib import Path
 
 from pydantic import Field, model_validator
@@ -63,6 +64,13 @@ class Settings(BaseSettings):
     def request_timeout(self) -> int:
         """Max time in seconds to wait for an API call"""
         return 10
+
+    @property
+    def coordinates_re(self) -> re.Pattern:
+        """ISO 6709 style coordinates, e.g. +46.575707+14.395198+740"""
+        return re.compile(
+            r"^([+-]\d+(?:\.\d+)?)([+-]\d+(?:\.\d+)?)([+-]\d+(?:\.\d+)?)?/?$"
+        )
 
 
 settings = Settings()

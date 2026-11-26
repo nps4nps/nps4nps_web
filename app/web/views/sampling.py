@@ -77,10 +77,4 @@ async def job_results(request: Request, job_id: str):
             status_code=404,
             detail="Results are not available",
         )
-    return templates.TemplateResponse(
-        "sample-map-results.html",
-        {
-            "request": request,
-            "result": task.result,
-        },
-    )
+    return HTMLResponse(content=task.result)
