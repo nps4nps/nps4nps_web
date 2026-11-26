@@ -19,3 +19,18 @@ async def about(request: Request):
 @router.get("/contact", include_in_schema=False, response_class=HTMLResponse)
 async def contact(request: Request):
     return templates.TemplateResponse(request=request, name="contact.html")
+
+
+@router.get("/usecases", include_in_schema=False, response_class=HTMLResponse)
+async def usecases(request: Request):
+    return templates.TemplateResponse(request=request, name="usecases.html")
+
+
+@router.get("/pages", include_in_schema=False, response_class=HTMLResponse)
+async def pages(request: Request):
+    return templates.TemplateResponse(request=request, name="pages.html")
+
+
+@router.get("/documentation", include_in_schema=False, response_class=HTMLResponse)
+async def documentation(request: Request):
+    return templates.TemplateResponse(request=request, name="documentation.html")
