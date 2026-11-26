@@ -46,6 +46,9 @@ COPY --from=builder --chown=nonroot:nonroot /python /python
 # Copy the application from the builder
 COPY --from=builder --chown=nonroot:nonroot /app /app
 
+# Create map storage directory and assign ownership
+RUN mkdir -p /data/maps && chown -R nonroot:nonroot /data
+
 # Place executables in the environment at the front of the path
 ENV PATH="/app/.venv/bin:$PATH"
 

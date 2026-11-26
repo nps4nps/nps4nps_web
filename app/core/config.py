@@ -1,4 +1,5 @@
 import logging
+import pathlib
 import re
 from pathlib import Path
 
@@ -43,7 +44,7 @@ class Settings(BaseSettings):
     @property
     def task_time_limit(self) -> int:
         """Celery task time limit in seconds"""
-        return 360
+        return 240
 
     @property
     def max_retries(self) -> int:
@@ -71,6 +72,21 @@ class Settings(BaseSettings):
         return re.compile(
             r"^([+-]\d+(?:\.\d+)?)([+-]\d+(?:\.\d+)?)([+-]\d+(?:\.\d+)?)?/?$"
         )
+
+    @property
+    def time_update_defaults(self) -> int:
+        """Time in seconds to update maps from live sources"""
+        return 1800
+
+    @property
+    def map_dir(self) -> pathlib.Path:
+        """Location of stored default maps"""
+        return Path("/data/maps")
+
+    @property
+    def dflt_sample_map_name(self) -> str:
+        """Name of stored default sample map"""
+        return "defaultSampleMap"
 
 
 settings = Settings()

@@ -7,11 +7,27 @@
 
     <h2>Sampling map</h2>
 
+    {% if job_id %}
     <iframe
         src="/sampling/{{ job_id }}/document"
         style="width: 100%; height: 800px; border: none;"
         title="Sampling map">
     </iframe>
+    {% endif %}
+
+    {% if data %}
+    <p>
+        You are looking at a default sample map which updates every 30 mins.
+        To look at an up-to-date sample map, click <a href="{{ url_for('get_map_sample') }}"><b>HERE</b></a>
+    </p>
+
+    <p>Query last run on {{ data }} </p>
+    <iframe
+        src="/sampling/default/document"
+        style="width: 100%; height: 800px; border: none;"
+        title="Default sampling map">
+    </iframe>
+    {% endif %}
 
 </div>
 
