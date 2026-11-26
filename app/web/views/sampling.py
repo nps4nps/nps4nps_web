@@ -9,10 +9,11 @@ from fastapi import (
     Form,
     HTTPException,
     Request,
+    Response,
     WebSocket,
     WebSocketDisconnect,
 )
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import FileResponse, HTMLResponse, RedirectResponse
 
 from app.core.celery_app import celery
 from app.core.config import settings
@@ -62,6 +63,20 @@ async def default_sampling_document():
     return HTMLResponse(
         content=html,
         headers={"Cache-Control": "no-store"},
+    )
+
+
+@router.get("/default/download")
+async def default_sampling_download():
+    csv_file = settings.map_dir / f"{settings.dflt_sample_map_name}.csv"
+
+    if not csv_file.exists():
+        raise HTTPException(status_code=404, detail="CSV not available")
+
+    return FileResponse(
+        path=csv_file,
+        media_type="text/csv",
+        filename="default-map-data.csv",
     )
 
 
@@ -145,4 +160,31 @@ async def sampling_document(job_id: str):
     if task.state != "SUCCESS":
         raise HTTPException(404, "Map not available")
 
-    return HTMLResponse(content=task.result)
+    return HTMLResponse(content=task.result["html"])
+
+
+@router.get("/{job_id}/download")
+async def sampling_download(job_id: str):
+    task_result = AsyncResult(job_id, app=celery)
+
+    if not task_result.ready():
+        raise HTTPException(
+            status_code=409,
+            detail="Sampling data collection not finished.",
+        )
+
+    if task_result.failed():
+        raise HTTPException(
+            status_code=500,
+            detail="Sampling data collection not failed.",
+        )
+
+    result = task_result.result
+
+    return Response(
+        content=result["csv"],
+        media_type="text/csv",
+        headers={
+            "Content-Disposition": f'attachment; filename="sampling-{job_id}.csv"'
+        },
+    )

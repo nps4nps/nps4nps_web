@@ -13,6 +13,10 @@ celery.conf.update(
     task_time_limit=settings.task_time_limit,
     timezone="Europe/Vienna",
     enable_utc=True,
+    task_serializer="json",
+    result_serializer="json",
+    accept_content=["json"],
+    result_expires=3600,
 )
 
 celery.autodiscover_tasks(settings.celery_tasks_import)

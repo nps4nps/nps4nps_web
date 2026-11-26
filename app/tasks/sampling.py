@@ -2,6 +2,8 @@ import json
 import logging
 from datetime import UTC, datetime, timezone
 
+import pandas as pd
+
 from app.core.celery_app import celery
 from app.core.config import settings
 from app.schemas.sample_mapping import DefaultSampleMapping
@@ -17,8 +19,12 @@ logger = logging.getLogger(__name__)
     max_retries=settings.max_retries,
     name="app.tasks.sampling.sample_mapping",
 )
-def sample_mapping(self, query: str) -> str:
-    """Generate the sample map, populated from nanopub data"""
+def sample_mapping(self, query: str) -> dict:
+    """Generate the sample map, populated from nanopub data
+
+    Returns:
+        A dict consisting of the map html and the csv used to populate it.
+    """
 
     def update(msg: str) -> None:
         self.update_state(state="PROGRESS", meta={"message": msg})
@@ -34,9 +40,10 @@ def sample_mapping(self, query: str) -> str:
         update(format_msg)
 
         update("Rendering the map")
-        html = create_sampling_map(formatted_results)
-
-        return html
+        return {
+            "html": create_sampling_map(formatted_results),
+            "csv": formatted_results.to_csv(index=False),
+        }
     except Exception as e:
         logger.exception(
             "Error while generating sampling map (attempt %s/%s)",
@@ -71,6 +78,8 @@ def rfrsh_dflt_sample_map():
         final_file = settings.map_dir / f"{settings.dflt_sample_map_name}.html"
         temp_json_file = settings.map_dir / f"{settings.dflt_sample_map_name}.json.tmp"
         final_json_file = settings.map_dir / f"{settings.dflt_sample_map_name}.json"
+        temp_csv_file = settings.map_dir / f"{settings.dflt_sample_map_name}.csv.tmp"
+        final_csv_file = settings.map_dir / f"{settings.dflt_sample_map_name}.csv"
 
         temp_file.write_text(html, encoding="utf-8")
         temp_file.replace(final_file)
@@ -80,6 +89,9 @@ def rfrsh_dflt_sample_map():
             encoding="utf-8",
         )
         temp_json_file.replace(final_json_file)
+
+        formatted_results.to_csv(temp_csv_file, index=False)
+        temp_csv_file.replace(final_csv_file)
 
         logger.info("Default sampling map successfully refreshed")
         return "Map refreshed successfully"
@@ -93,9 +105,11 @@ def rfrsh_dflt_sample_map():
 def init_dft_sample_map():
     """Generate sample map if not exists"""
     dflt_map = settings.map_dir / f"{settings.dflt_sample_map_name}.html"
+    dflt_json = settings.map_dir / f"{settings.dflt_sample_map_name}.json"
+    dflt_csv = settings.map_dir / f"{settings.dflt_sample_map_name}.csv"
 
-    if dflt_map.exists():
-        logger.info("Default map already exists. Skipping initialization.")
+    if dflt_map.exists() and dflt_json.exists() and dflt_csv.exists():
+        logger.info("Default sample map already exists. Skipping initialization.")
         return
 
     logger.info("No default map found. Generating initial map.")
