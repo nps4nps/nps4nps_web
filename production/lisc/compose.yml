@@ -1,7 +1,8 @@
 services:
   beat:
-    build: .
+    image: ghcr.io/nps4nps/nps4nps_web:latest
     command: celery -A app.core.celery_app.celery beat --loglevel=info
+    restart: unless-stopped
     volumes:
       - map_data:/data/maps
     networks:
@@ -11,8 +12,9 @@ services:
       - redis
 
   worker:
-    build: .
+    image: ghcr.io/nps4nps/nps4nps_web:latest
     command: celery -A app.core.celery_app.celery worker --loglevel=info
+    restart: unless-stopped
     env_file:
       - .env
     depends_on:
@@ -38,6 +40,7 @@ services:
 
   redis:
     image: redis:latest
+    restart: unless-stopped
     ports:
       - "6379:6379"
     volumes:

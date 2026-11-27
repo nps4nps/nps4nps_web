@@ -125,7 +125,8 @@ If parameters are not provided, the application will automatically start in deve
 
 - Download the content of the [lisc](production/lisc) directory in an appropriate location (e.g. with `curl --output <filename> <URL>`)
 - Set up routing in the `/etc/nginx/` directory on the VM
-- Specify the desired container version in [compose.yml](production/lisc/compose.yml)
+- Specify the desired container version in [compose.yml](production/lisc/compose.yml) (default: latest)
 - Add parameters in an `.env` file (see [.env.example](.env.example)
+- Run `docker compose pull`
 - Run `docker compose -f compose.yml up`
 - Check the status/visibility on web
