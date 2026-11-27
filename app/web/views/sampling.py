@@ -1,6 +1,5 @@
 import asyncio
 import json
-from pathlib import Path
 from typing import Annotated
 
 from celery.result import AsyncResult
