@@ -12,6 +12,7 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="{{ url_for('static', path='css/styles.css') }}" rel="stylesheet">
+  <link rel="shortcut icon" href="{{ url_for('static', path='images/logo-green-favicon.ico') }}">
   {% block head %}{% endblock %}
 </head>
 <body>
@@ -33,9 +34,10 @@
 
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('about') }}#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('usecases') }}#use-cases">Use cases</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url_for('documentation') }}#documentation">Documentation</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#nanopublications">Nanopublications</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}#use-cases">Use cases</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ url_for('documentation') }}">Documentation</a></li>
             <li class="nav-item ms-lg-2">
               <a class="btn btn-nav-cta" href="{{ url_for('pages') }}#get-started">
                 Explore the project <i class="bi bi-arrow-up-right ms-1" aria-hidden="true"></i>
@@ -63,17 +65,16 @@
         <div class="col-6 col-lg-2 offset-lg-1">
           <h2 class="footer-heading">Explore</h2>
           <ul class="list-unstyled footer-links">
-            <li><a href="{{ url_for('about') }}#about">About</a></li>
-            <li><a href="{{ url_for('usecases') }}#use-cases">Use cases</a></li>
-            <li><a href="{{ url_for('pages') }}#applications">Applications</a></li>
+            <li><a href="{{ url_for('documentation') }}">Documentation</a></li>
+            <li><a href="{{ url_for('pages') }}">Case Studies</a></li>
           </ul>
         </div>
         <div class="col-6 col-lg-3">
           <h2 class="footer-heading">Project</h2>
           <ul class="list-unstyled footer-links">
-            <li><a href="{{ url_for('contact') }}#contact">Contact and Imprint</a></li>
-            <li><a href="{{ openapi_url }}#openapi">API Documentation (OpenAPI)</a></li>
-            <li><a href="{{ redoc_url }}#openapi">API Documentation (ReDoc)</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact and Imprint</a></li>
+            <li><a href="{{ openapi_url }}">API Documentation (OpenAPI)</a></li>
+            <li><a href="{{ redoc_url }}">API Documentation (ReDoc)</a></li>
           </ul>
         </div>
       </div>
