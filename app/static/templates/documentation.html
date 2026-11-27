@@ -1,0 +1,308 @@
+{% extends "base.html" %}
+
+{% block title %}Documentation & Templates — NPs4NPs{% endblock %}
+{% block meta_description %}Learn how to use nanopublication templates, create an account with ORCID, and contribute to the NPs4NPs knowledge graph.{% endblock %}
+
+{% block content %}
+
+<!-- Page introduction -->
+<section class="docs-header">
+    <div class="container">
+        <span class="section-kicker">DOCUMENTATION</span>
+        <h1 class="docs-title mt-3">Getting started with <span>Nanopublications.</span></h1>
+        <p class="docs-lead">
+            Learn how to contribute structured knowledge about natural products.
+            Find out how templates work, set up your account, and explore
+            the available nanopublication templates.
+        </p>
+    </div>
+</section>
+
+
+<!-- Concept -->
+<section class="docs-section" id="concept">
+    <div class="container">
+
+        <div class="docs-section-heading">
+            <span class="section-kicker">01 / THE CONCEPT</span>
+            <h2>From structured input to knowledge graph.</h2>
+        </div>
+
+        <div class="row g-4 align-items-start">
+
+            <div class="col-lg-7">
+                <p>
+                    Nanopublication templates provide a structured way to
+                    contribute scientific information. Each template defines
+                    which information should be provided, how individual
+                    fields relate to each other, and how the submitted data
+                    is represented.
+                </p>
+
+                <p>
+                    Instead of entering information in an unstructured text
+                    format, users fill in predefined fields. By using ontologies, this helps ensure
+                    consistent data input and makes the resulting information
+                    easier to validate, compare, and reuse.
+                </p>
+
+                <p>
+                    Once submitted, the information is transformed into the
+                    corresponding graph representation and stored as a
+                    nanopublication in the federated Nanopublications knowledge graph.
+                    Its assertion captures the scientific
+                    statement, while provenance and publication information
+                    document its origin and authorship.
+                </p>
+
+                <p class="mb-0">
+                    In this way, individual contributions become connected
+                    pieces of structured knowledge that can be queried,
+                    linked, and reused.
+                </p>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="docs-process">
+                    <div class="process-item">
+                        <span class="process-number">01</span>
+                        <div>
+                            <strong>Choose a template</strong>
+                            <small>Select the appropriate structure for your information.</small>
+                        </div>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-item">
+                        <span class="process-number">02</span>
+                        <div>
+                            <strong>Enter your data</strong>
+                            <small>Complete the predefined fields and provide the relevant references.</small>
+                        </div>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-item">
+                        <span class="process-number">03</span>
+                        <div>
+                            <strong>Generate a nanopublication</strong>
+                            <small>Transform the input into a structured graph representation.</small>
+                        </div>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-item">
+                        <span class="process-number">04</span>
+                        <div>
+                            <strong>Contribute to the graph</strong>
+                            <small>Make your knowledge available for discovery and reuse.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Getting started -->
+<section class="docs-getting-started" id="getting-started">
+    <div class="container">
+
+        <div class="docs-section-heading">
+            <span class="section-kicker">02 / GETTING STARTED</span>
+            <h2>Three steps to start contributing.</h2>
+            <p>
+                Before creating nanopublications, you need an account
+                and approval to contribute to the project.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Step 1 -->
+            <div class="col-md-4">
+                <article class="getting-started-card h-100">
+                    <span class="step-label">STEP 01</span>
+                    <div class="step-icon">
+                        <i class="bi bi-person-badge"></i>
+                    </div>
+                    <h3>Have an ORCID account</h3>
+
+                    <p>
+                        To create Nanopublications, you need an ORCID account.
+                        ORCID provides a persistent researcher identifier
+                        that allows your contributions to be associated
+                        with your academic identity.
+                    </p>
+
+                    <a href="https://orcid.org/register"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="docs-link">
+                        Create an ORCID account
+                        <i class="bi bi-box-arrow-up-right"></i>
+                    </a>
+                </article>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-4">
+                <article class="getting-started-card h-100">
+                    <span class="step-label">STEP 02</span>
+                    <div class="step-icon">
+                        <i class="bi bi-file-earmark-plus"></i>
+                    </div>
+                    <h3>Create your introductory nanopublication</h3>
+
+                    <p>
+                        Head over to <a href="https://nanodash.knowledgepixels.com/" class="text-body-link">Nanodash</a>
+                        and sign in with your ORCID account.
+                        Then, go to your profile page and create your introductory
+                        nanopublication. This initial contribution
+                        establishes your presence and provides the information required for
+                        the approval process.
+                    </p>
+
+                    <a href="#templates" class="docs-link">
+                        Explore the templates
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-4">
+                <article class="getting-started-card h-100">
+                    <span class="step-label">STEP 03</span>
+                    <div class="step-icon">
+                        <i class="bi bi-patch-check"></i>
+                    </div>
+                    <h3>Get approved</h3>
+
+                    <p>
+                        To become an approved contributor, your introductory
+                        nanopublication needs to be reviewed and approved
+                        by an existing authorized user.
+                    </p>
+
+                    <p>
+                        If you need assistance with the approval process,
+                        please get in touch with the project team.
+                    </p>
+
+                    <a href="{{ url_for('contact') }}" class="docs-link">
+                        Contact the project team
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- Templates -->
+<section class="docs-section" id="templates">
+    <div class="container">
+
+        <div class="docs-section-heading">
+            <span class="section-kicker">03 / AVAILABLE TEMPLATES</span>
+            <h2>Choose a nanopublication template.</h2>
+            <p>
+                Each template is designed for a particular type of
+                information. Select the one that best matches the
+                knowledge you want to contribute.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Template 1 -->
+            <div class="col-md-6 col-lg-3">
+                <article class="template-card h-100">
+                    <div class="template-card-top">
+                        <span class="template-index">TEMPLATE 01</span>
+                        <i class="bi bi-person"></i>
+                    </div>
+
+                    <h3>Declaring the Intention to Sample</h3>
+
+                    <p>
+                        Announce your intention to sample biological or environmental
+                        material in a specified location. This is the starting point
+                        of our discovery knowledge graph.
+                    </p>
+
+                    <a href="https://w3id.org/np/RAX1sVMU6z8BS41dsoXFktK6K5Vw0QgZ4vmAEWANhFiqs/templateKind"
+                       class="template-link">
+                        Open template
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </article>
+            </div>
+
+            <!-- Template 2 -->
+            <div class="col-md-6 col-lg-3">
+                <article class="template-card h-100">
+                    <div class="template-card-top">
+                        <span class="template-index">TEMPLATE 02</span>
+                        <i class="bi bi-flower2"></i>
+                    </div>
+
+                    <h3>Declare the Collection of a Sample</h3>
+
+                    <p>
+                        You have collected biological or environmental material and want
+                        to document your activity. This template also allows to link back to your
+                        previously published sampling intention.
+                    </p>
+
+                    <a href="https://w3id.org/np/RAgCh57tYtg-fTQeVwGwRGETodFYIjaY9KuXGRcSM1NPw/templateKind"
+                       class="template-link">
+                        Open template
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="{{ url_for('get_default_map_sample') }}"
+                       class="template-link">
+                        Show a map of known samples
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </article>
+            </div>
+
+            <!-- Template 3 -->
+            <div class="col-md-6 col-lg-3">
+                <article class="template-card h-100">
+                    <div class="template-card-top">
+                        <span class="template-index">TEMPLATE 03</span>
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+
+                    <h3>Describing a Microorganism</h3>
+
+                    <p>
+                        You have isolated a microorganism from your previously collected sample
+                        and want to describe it as soon as possible.
+                        This template allows to link back to your previously published sample material.
+                    </p>
+
+                    <a href="https://w3id.org/np/RAyqTyJN6BBXFVOArX3TyxHKjMXXLQ5UKTfFUEfUbfd-M/templateKind"
+                       class="template-link">
+                        Open template
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

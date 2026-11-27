@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block title %}NPs4NPs - Nanopublications for Natural Product Research{% endblock %}
+{% block meta_description %}Discover how nanopublications can make natural products knowledge more transparent, connected, and reusable.{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-7">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> OPEN SCIENCE · NATURAL PRODUCTS</span>
+        <h1 class="hero-title mt-4">Small pieces of knowledge.<br><span>Connected for discovery.</span></h1>
+        <p class="hero-lead mt-4">
+          Bringing nanopublications to natural product research to make data easier to find, access, connect, and reuse.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a class="btn btn-primary-custom" href="#nanopublications">
+            Discover nanopublications <i class="bi bi-arrow-right ms-2" aria-hidden="true"></i>
+          </a>
+          <a class="btn btn-outline-custom" href="#about">Learn about the project</a>
+        </div>
+        <div class="hero-proof mt-5">
+          <div class="proof-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+          <p class="mb-0"><strong>Transparent by design</strong><br><span>Connecting claims to individual researchers for better attribution and provenance.</span></p>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="hero-visual" aria-label="Illustration of connected scientific knowledge">
+          <div class="visual-orbit orbit-one"></div>
+          <div class="visual-orbit orbit-two"></div>
+          <div class="visual-center"><img src="{{ url_for('static', path='images/logo-green-alt.svg') }}" width="60" height="60"></div>
+          <div class="visual-node node-top"><i class="bi bi-file-earmark-text"></i><span>Assertion</span></div>
+          <div class="visual-node node-right"><i class="bi bi-link-45deg"></i><span>Evidence</span></div>
+          <div class="visual-node node-bottom"><i class="bi bi-person-check"></i><span>Provenance</span></div>
+          <div class="visual-node node-left"><i class="bi bi-diagram-2"></i><span>Connections</span></div>
+          <div class="visual-caption">Linked Open Data for Natural Product Research</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom-shape" aria-hidden="true"></div>
+</section>
+
+<section class="section-padding" id="about">
+  <div class="container">
+    <div class="row justify-content-between align-items-end gy-3 mb-5">
+      <div class="col-lg-7">
+        <span class="section-kicker">Standing on the shoulders of giants</span>
+        <h2 class="section-title mt-2">Make natural product knowledge more <i>FAIR</i>.</h2>
+      </div>
+      <div class="col-lg-4">
+        <p class="section-intro mb-0">
+          Natural product research is often published in machine-incompatible and unstructured, heterogeneous formats.
+          Nanopublications can help linking such disparate data types for faster discovery.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-3">
+        <article class="feature-card h-100">
+          <div class="feature-icon icon-green"><i class="bi bi-search" aria-hidden="true"></i></div>
+          <h3>Findable</h3>
+          <p>Represent individual scientific statements as structured, attributable, machine-readable knowledge that can be discovered.</p>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="feature-card h-100">
+          <div class="feature-icon icon-sand"><i class="bi bi-universal-access" aria-hidden="true"></i></div>
+          <h3>Accessible</h3>
+          <p>Make research data freely accessible in open formats, with federated data storage guaranteeing data persistence.</p>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="feature-card h-100">
+          <div class="feature-icon icon-lilac"><i class="bi bi-diagram-3" aria-hidden="true"></i></div>
+          <h3>Interoperable</h3>
+          <p>Represent data using open and controlled vocabularies that support richer exploration and knowledge integration.</p>
+        </article>
+      </div>
+      <div class="col-md-3">
+        <article class="feature-card h-100">
+          <div class="feature-icon icon-blue"><i class="bi bi-arrow-clockwise" aria-hidden="true"></i></div>
+          <h3>Reusable</h3>
+          <p>Describe your data accurately and accessibly including provenance and usage license to support data reuse by your peers.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="concept-section section-padding" id="nanopublications">
+  <div class="container">
+    <div class="row align-items-center gy-5">
+      <div class="col-lg-5">
+        <span class="section-kicker">A BUILDING BLOCK FOR OPEN SCIENCE</span>
+        <h2 class="section-title mt-2">So, what is a Nanopublication?</h2>
+        <p class="section-intro mt-3">
+          A <a rel="nanopub-link" class="text-body-link" href="https://nanopub.net/" target="_blank">Nanopublication</a> is a small, self-contained knowledge graph of a single
+          assertion, packaged with information about its provenance and publication context.
+          Nanopublications are already used to register
+          <a class="text-body-link" href="https://bdj.pensoft.net/nanopublications" target="_blank">biodiversity statements</a>
+          or
+          <a class="text-body-link " href="https://w3id.org/spaces/biodiversity/r/ontology" target="_blank">ontology terms</a>.
+        </p>
+        <p class="text-muted-custom">
+          Think of it as a precise, citable knowledge unit: not just what is
+          claimed, but also where the claim came from and when it was made.
+        </p>
+        <a class="text-link" href="#get-started">Curious? See our case studies <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <div class="col-lg-6 offset-lg-1">
+        <div class="nanopub-card">
+          <div class="nanopub-card-header">
+            <span class="status-pill"><span></span> NANOPUBLICATION ANATOMY</span>
+            <i class="bi bi-three-dots" aria-hidden="true"></i>
+          </div>
+          <div class="np-layer np-assertion">
+            <div class="np-layer-icon"><i class="bi bi-chat-square-quote"></i></div>
+            <div><span class="np-label">ASSERTION</span><strong>A (known) natural product is reported for a bacterial strain.</strong></div>
+            <span class="np-number">01</span>
+          </div>
+          <div class="np-connector"><span></span></div>
+          <div class="np-layer np-provenance">
+            <div class="np-layer-icon"><i class="bi bi-journal-text"></i></div>
+            <div><span class="np-label">PROVENANCE</span><strong>The claim is supported by a source and evidence.</strong></div>
+            <span class="np-number">02</span>
+          </div>
+          <div class="np-connector"><span></span></div>
+          <div class="np-layer np-pubinfo">
+            <div class="np-layer-icon"><i class="bi bi-globe2"></i></div>
+            <div><span class="np-label">PUBLICATION INFO</span><strong>The nanopublication is linked to the creator and signed cryptographically.</strong></div>
+            <span class="np-number">03</span>
+          </div>
+          <p class="np-footnote mb-0"><i class="bi bi-info-circle me-1"></i> Nanopublications are immutable: they can never be deleted, only retracted.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" id="use-cases">
+  <div class="container">
+    <div class="text-center mx-auto section-heading-wrap">
+      <span class="section-kicker">FROM DATA TO DISCOVERY</span>
+      <h2 class="section-title mt-2">An exchange format for natural products research knowledge.</h2>
+      <p class="section-intro mt-3">Connect the pieces of evidence that help researchers move from isolated facts to useful insights.</p>
+    </div>
+    <div class="row g-3 mt-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="usecase-card"><i class="bi bi-flower2"></i><h3>Organisms</h3><p>Organisms, their sampling locations, and taxonomic context.</p></div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="usecase-card"><i class="bi bi-droplet-half"></i><h3>Compounds</h3><p>Chemical entities and reported occurrences.</p></div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="usecase-card"><i class="bi bi-activity"></i><h3>Bioactivities</h3><p>Observed effects and experimental findings.</p></div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="usecase-card"><i class="bi bi-journal-richtext"></i><h3>Evidence</h3><p>Publications, methods, and supporting sources.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="get-started">
+  <div class="container">
+    <div class="cta-panel">
+      <div>
+        <span class="section-kicker">EXPLORE THE PROJECT</span>
+        <h2 class="mt-2 mb-2">Turn scattered facts into connected knowledge.</h2>
+        <p class="mb-0">Explore the approach, follow the examples, and help shape reusable natural products knowledge.</p>
+      </div>
+      <a class="btn btn-light-cta" href="{{ url_for('documentation') }}">Learn more about the project<i class="bi bi-arrow-up-right ms-2"></i></a>
+    </div>
+  </div>
+</section>
+{% endblock %}

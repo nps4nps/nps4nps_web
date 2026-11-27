@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Get Sampling Map | NaturPub{% endblock %}
+
+{% block content %}
+
+<section class="subpage-hero">
+    <div class="container">
+        <span class="eyebrow">Visual exploration</span>
+        <h1>Get the sampling map</h1>
+        <p class="lead">
+            Generate an up-to-date map showing sampling locations
+            documented in our nanopublications.
+        </p>
+    </div>
+</section>
+
+<section class="docs-section">
+    <div class="container">
+
+        <div class="sampling-request-card">
+            <div class="sampling-request-icon">
+                <i class="bi bi-geo-alt"></i>
+            </div>
+
+            <h2>Waiting for sample map</h2>
+
+            <p>The task ID is {{ job_id }}</p>
+
+            <p id="status-message" class="text-muted">Your job is waiting to be processed...</p>
+            <div id="error-message" class="alert alert-danger d-none"></div>
+
+
+            <script>
+                const jobId = "{{ job_id }}";
+
+                const protocol = window.location.protocol === "https:"
+                    ? "wss:"
+                    : "ws:";
+
+                const ws = new WebSocket(
+                    `${protocol}//${window.location.host}/sampling/ws/jobs/${jobId}`
+                );
+
+                ws.onmessage = function(event) {
+                    const data = JSON.parse(event.data);
+
+                    const message = document.getElementById("status-message");
+                    const errorMessage = document.getElementById("error-message");
+
+                    if (data.state === "PROGRESS") {
+                        message.textContent = data.info.message || "Processing...";
+                    }
+
+                    else if (data.state === "STARTED") {
+                        message.textContent = "Your job has started...";
+                    }
+
+                    else if (data.state === "RETRY") {
+                        message.textContent = "Temporary error. Retrying...";
+                    }
+
+                    else if (data.state === "SUCCESS") {
+                        message.textContent = "Processing completed! Redirecting...";
+                        ws.close();
+                        window.location.href = `/sampling/${jobId}/results`;
+                    }
+
+                    else if (data.state === "FAILURE") {
+                        message.textContent = "Something went wrong.";
+
+                        errorMessage.textContent = "Your job could not be completed.";
+                        errorMessage.classList.remove("d-none");
+
+                        ws.close();
+                    }
+
+                    else if (data.state === "PENDING") {
+                        message.textContent = "Waiting for an available worker...";
+                    }
+                };
+
+                ws.onclose = function() {
+                    console.log("WebSocket connection closed");
+                };
+
+                ws.onerror = function(error) {
+                    console.error("WebSocket error:", error);
+                };
+            </script>
+
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Applications | NPs4NPs{% endblock %}
+
+{% block content %}
+
+<!-- Page header -->
+<section class="subpage-hero docs-hero">
+    <div class="container">
+        <span class="eyebrow">Explore the data</span>
+        <h1>Applications</h1>
+        <p class="lead">
+            Explore and retrieve data from the Nanopublication Knowledge Graph using
+            dedicated applications and visual tools.
+        </p>
+    </div>
+</section>
+
+<!-- Data access -->
+<section class="docs-section">
+    <div class="container">
+        <div class="docs-intro">
+            <span class="section-kicker">Accessing the data</span>
+            <h2>How can I retrieve data?</h2>
+            <p>
+                The information published as Nanopublications can be queried
+                programmatically using <a href="https://query.knowledgepixels.com/tools/full/yasgui.html" class="text-body-link">SPARQL</a>.
+                This allows you to retrieve
+                specific information, combine data from different sources,
+                and integrate results into your own workflows.
+            </p>
+            <p>
+                However, writing and running SPARQL queries requires some
+                technical knowledge and is not necessarily user-friendly.
+                To make the data more accessible, we provide visual
+                applications that let you explore selected information
+                interactively, without having to write queries yourself.
+            </p>
+        </div>
+
+        <div class="data-access-card">
+            <div class="data-access-icon">
+                <i class="bi bi-code-slash"></i>
+            </div>
+            <div class="data-access-content">
+                <h3>SPARQL endpoint</h3>
+                <p>
+                    If you are familiar with SPARQL, you can query the
+                    nanopublication data directly through our SPARQL endpoint.
+                    This is the most flexible way to retrieve data, but it
+                    requires knowledge of the query language and the underlying
+                    data structure.
+                </p>
+                <a
+                    class="btn btn-outline-primary"
+                    href="https://query.knowledgepixels.com/tools/full/yasgui.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Open SPARQL endpoint
+                    <i class="bi bi-box-arrow-up-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Visual applications -->
+<section class="docs-section applications-section" id="visual-applications">
+    <div class="container">
+        <div class="docs-intro">
+            <span class="section-kicker">Visual exploration</span>
+            <h2>Explore the data visually</h2>
+            <p>
+                The following applications provide accessible ways to explore
+                information contained in our nanopublications. Each application
+                focuses on a particular type of data or research question.
+                Data used to populate the views can be downloaded in .csv-format.
+            </p>
+        </div>
+
+        <div class="application-list">
+
+            <!-- Sampling activities map -->
+            <article class="application-card">
+                <div class="application-visual">
+                    <div class="application-placeholder-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                </div>
+
+                <div class="application-content">
+                    <div class="application-meta">
+                        <span class="application-tag">Available</span>
+                        <span class="application-category">
+                            Sampling activities
+                        </span>
+                    </div>
+
+                    <h3>Sampling activities map</h3>
+                    <p>
+                        Explore nanopublications describing sampling activities
+                        on an interactive map. The map provides a geographical
+                        overview of documented sampling locations and helps
+                        you discover where sampling activities have taken place.
+                    </p>
+
+                    <a
+                        href="{{ url_for('get_default_map_sample') }}"
+                        class="btn btn-primary"
+                    >
+                        Explore the map
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- Future applications note -->
+<section class="docs-section applications-outlook">
+    <div class="container">
+        <div class="applications-outlook-inner">
+            <i class="bi bi-plus-circle"></i>
+            <div>
+                <h3>More applications to come</h3>
+                <p>
+                    We plan to expand this collection with additional visual
+                    tools for exploring different aspects of the nanopublication
+                    data. New applications will be added here as they become
+                    available.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
