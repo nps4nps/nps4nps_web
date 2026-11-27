@@ -1,44 +1,84 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Sampling Map | NPs4NPs{% endblock %}
 
 {% block content %}
 
+<!-- Page header -->
+<section class="subpage-hero">
+    <div class="container">
+        <span class="eyebrow">Visual exploration</span>
+        <h1>Sampling activities map</h1>
+        <p class="lead">
+            Explore the geographical distribution of sampling activities
+            documented in our Nanopublications knowledge graph.
+        </p>
+    </div>
+</section>
 
-<div class="container-fluid mt-4">
+<section class="docs-section">
+    <div class="container">
 
-    <h2>Sampling map</h2>
+        {% if job_id %}
 
-    {% if job_id %}
-    <a href="/sampling/{{ job_id }}/download"
-       class="btn btn-outline-primary">
-        Download CSV
-    </a>
+        <div class="map-toolbar">
+            <div>
+                <h3>Your sampling map</h3>
+                <p>Explore the results of your sampling query.</p>
+            </div>
+            <a href="/sampling/{{ job_id }}/download"
+               class="btn btn-outline-primary">
+                <i class="bi bi-download me-2"></i>Download CSV
+            </a>
+        </div>
 
-    <iframe
-        src="/sampling/{{ job_id }}/document"
-        style="width: 100%; height: 800px; border: none;"
-        title="Sampling map">
-    </iframe>
-    {% endif %}
+        <div class="sampling-map-container">
+            <iframe
+                src="/sampling/{{ job_id }}/document"
+                title="Sampling map"
+                loading="lazy">
+            </iframe>
+        </div>
 
-    {% if data %}
-    <p>
-        You are looking at a default sample map which updates every 30 mins (needs manual refresh to reload the new view).
-        To look at an up-to-date sample map, click <a href="{{ url_for('get_map_sample') }}"><b>HERE</b></a>
-    </p>
+        {% elif data %}
 
-    <a href="/sampling/default/download"
-       class="btn btn-outline-primary">
-        Download CSV
-    </a>
+        <div class="map-toolbar">
+            <div>
+                <h3>Default sampling map</h3>
+                <p>
+                    This map is automatically updated every 30 minutes.
+                    The displayed view needs to be manually refreshed
+                    to show the latest data.
+                </p>
+                <small class="text-muted">
+                    Last query: {{ data }}
+                </small>
+            </div>
 
-    <p>Query last run on {{ data }} </p>
-    <iframe
-        src="/sampling/default/document"
-        style="width: 100%; height: 800px; border: none;"
-        title="Default sampling map">
-    </iframe>
-    {% endif %}
+            <div class="map-actions">
+                <a href="{{ url_for('get_map_sample') }}"
+                   class="btn btn-primary">
+                    <i class="bi bi-arrow-clockwise me-2"></i>Refresh map
+                </a>
 
-</div>
+                <a href="/sampling/default/download"
+                   class="btn btn-outline-primary">
+                    <i class="bi bi-download me-2"></i>Download CSV
+                </a>
+            </div>
+        </div>
+
+        <div class="sampling-map-container">
+            <iframe
+                src="/sampling/default/document"
+                title="Default sampling map"
+                loading="lazy">
+            </iframe>
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
 
 {% endblock %}

@@ -1,17 +1,50 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Get Sampling Map | NaturPub{% endblock %}
 
 {% block content %}
 
-
-<h1>Get the sample map</h1>
-
-<form method="post" id="addition" action="{{ url_for('submit_map_sample') }}">
-<div class="row justify-content-center my-4">
-    <div class="col-auto d-flex justify-content-center align-items-center p-0">
-        <button type="submit" id="long-addition" class="btn btn-primary">Get map of sampling locations</button>
+<section class="subpage-hero">
+    <div class="container">
+        <span class="eyebrow">Visual exploration</span>
+        <h1>Get the sampling map</h1>
+        <p class="lead">
+            Generate an up-to-date map showing sampling locations
+            documented in our nanopublications.
+        </p>
     </div>
-</div>
-</form>
+</section>
 
+<section class="docs-section">
+    <div class="container">
+
+        <div class="sampling-request-card">
+            <div class="sampling-request-icon">
+                <i class="bi bi-geo-alt"></i>
+            </div>
+
+            <h2>Explore sampling locations</h2>
+
+            <p>
+                Request a new map based on the latest available sampling
+                activity data. The map may take a moment to generate.
+            </p>
+
+            <form method="post"
+                  id="addition"
+                  action="{{ url_for('submit_map_sample') }}">
+
+                <button type="submit"
+                        id="long-addition"
+                        class="btn btn-primary btn-lg">
+                    <i class="bi bi-map me-2"></i>
+                    Generate sampling map
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+</section>
 
 {% endblock %}

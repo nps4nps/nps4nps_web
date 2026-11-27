@@ -108,7 +108,7 @@ a { text-decoration: none; }
 .icon-green { color: #2b7253; background: #e8f2e9; }
 .icon-sand { color: #a07837; background: #f7f0df; }
 .icon-lilac { color: #74629a; background: #f0edf8; }
-.icon-blue { color: #809bce; background: #bfffff; }
+.icon-blue { color: #809bce; background: #bde0fe; }
 .feature-card h3, .usecase-card h3 { margin-bottom: .65rem; font-size: 1.12rem; font-weight: 750; }
 .feature-card p, .usecase-card p { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.75; }
 
@@ -706,5 +706,271 @@ a { text-decoration: none; }
 
     .getting-started-card {
         padding: 1.5rem;
+    }
+}
+
+/* =========================================
+   Applications page
+   ========================================= */
+
+.data-access-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 2rem;
+    margin-top: 2rem;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e9e2);
+    border-radius: 1rem;
+}
+
+.data-access-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 3.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    color: var(--color-primary, #356b4b);
+    background: var(--color-primary-light, #edf3ed);
+    border-radius: 0.85rem;
+    font-size: 1.5rem;
+}
+
+.data-access-content {
+    flex: 1;
+}
+
+.data-access-content h3 {
+    margin-bottom: 0.75rem;
+}
+
+.data-access-content p {
+    margin-bottom: 1.25rem;
+    max-width: 850px;
+}
+
+.application-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.application-card {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    overflow: hidden;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e9e2);
+    border-radius: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(30, 55, 35, 0.08);
+}
+
+.application-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    background: var(--color-primary-light, #edf3ed);
+}
+
+.application-placeholder-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    color: var(--color-primary, #356b4b);
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 1.25rem;
+    font-size: 2.5rem;
+}
+
+.application-content {
+    padding: 2rem;
+}
+
+.application-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.application-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.7rem;
+    color: #28613d;
+    background: #e7f3e9;
+    border-radius: 50rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.application-category {
+    color: var(--color-text-muted, #6c756d);
+    font-size: 0.875rem;
+}
+
+.application-content h3 {
+    margin-bottom: 0.75rem;
+}
+
+.application-content p {
+    max-width: 750px;
+    margin-bottom: 1.5rem;
+}
+
+.applications-outlook-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 2rem;
+    background: var(--color-primary-light, #edf3ed);
+    border-radius: 1rem;
+}
+
+.applications-outlook-inner > i {
+    color: var(--color-primary, #356b4b);
+    font-size: 1.75rem;
+}
+
+.applications-outlook-inner h3 {
+    margin-bottom: 0.5rem;
+}
+
+.applications-outlook-inner p {
+    margin-bottom: 0;
+    max-width: 850px;
+}
+
+@media (max-width: 767.98px) {
+    .data-access-card {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .application-card {
+        grid-template-columns: 1fr;
+    }
+
+    .application-visual {
+        min-height: 150px;
+    }
+
+    .application-content {
+        padding: 1.5rem;
+    }
+
+    .applications-outlook-inner {
+        padding: 1.5rem;
+    }
+}
+
+/* Sampling map */
+
+.map-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e9e2);
+    border-radius: 1rem;
+}
+
+.map-toolbar h3 {
+    margin-bottom: 0.4rem;
+}
+
+.map-toolbar p {
+    margin-bottom: 0.4rem;
+}
+
+.map-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.sampling-map-container {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid var(--color-border, #e5e9e2);
+    border-radius: 1rem;
+}
+
+.sampling-map-container iframe {
+    display: block;
+    width: 100%;
+    height: 800px;
+    border: none;
+}
+
+@media (max-width: 767.98px) {
+    .map-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .map-actions {
+        width: 100%;
+    }
+
+    .sampling-map-container iframe {
+        height: 600px;
+    }
+}
+
+/* Sampling map request page */
+
+.sampling-request-card {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--color-surface, #ffffff);
+    border: 1px solid var(--color-border, #e5e9e2);
+    border-radius: 1rem;
+}
+
+.sampling-request-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 auto 1.5rem;
+    color: var(--color-primary, #356b4b);
+    background: var(--color-primary-light, #edf3ed);
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+.sampling-request-card h2 {
+    margin-bottom: 1rem;
+}
+
+.sampling-request-card p {
+    max-width: 500px;
+    margin: 0 auto 1.75rem;
+    color: var(--color-text-muted, #6c756d);
+}
+
+@media (max-width: 575.98px) {
+    .sampling-request-card {
+        padding: 2rem 1.25rem;
     }
 }
