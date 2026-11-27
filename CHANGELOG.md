@@ -5,11 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.2] 20.10.2026
+## [0.0.2] 27.11.2026
 
 ### Added
 
 - Async processing capabilities via Redis and Celery
+- Frontend rework
+- Nanopub sample map visualization
+- Crosslinks to nanopub templates
 
 ### Added
 
