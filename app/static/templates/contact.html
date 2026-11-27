@@ -1,8 +1,306 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% block title %}Contact & Imprint — NPs4NPs{% endblock %}
+{% block meta_description %}Contact information, acknowledgements, and legal notice for the NPs4NPs project.{% endblock %}
 
 {% block content %}
 
+<!-- Page Header -->
+<section class="subpage-hero">
+    <div class="container">
+        <span class="section-kicker">INFORMATION & TRANSPARENCY</span>
+        <h1 class="subpage-title mt-3">Contact & <span>Imprint</span></h1>
+        <p class="subpage-lead">
+            If you are interested in the NPs4NPs project and want to get involved with the community effort, please do not hesitate to get in touch!
+            Also visit the <a class="text-body-link " href="https://github.com/nps4nps/" target="_blank">NPs4NPs</a> GitHub organization for more information about the project.
+        </p>
+    </div>
+</section>
 
-<h1>Contact</h1>
+<!-- Contact Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+                <span class="section-kicker">GET IN TOUCH</span>
+                <h2 class="section-title mt-2">We'd love to hear from you.</h2>
+                <p class="section-intro mt-3">
+                    Questions, suggestions, scientific collaborations, or
+                    feedback are always welcome. Feel free to contact us.
+                </p>
+
+                <div class="contact-detail mt-4">
+                    <div class="contact-icon">
+                        <i class="bi bi-envelope"></i>
+                    </div>
+                    <div>
+                        <span class="contact-label">EMAIL</span>
+                        <a href="mailto:mitja.zdouc@univie.ac.at">
+                            mitja.zdouc(a)univie.ac.at
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-detail mt-3">
+                    <div class="contact-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <div>
+                        <span class="contact-label">University of Vienna</span>
+                        <strong>Department of Pharmaceutical Sciences</strong>
+                        <span class="contact-muted">Division of Pharmacognosy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 offset-lg-1">
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="bi bi-chat-heart"></i>
+                    </div>
+                    <h3>Research thrives on collaboration.</h3>
+                    <p>
+                        This project explores how nanopublications can support
+                        the structured representation, exchange, and reuse of
+                        knowledge about natural products.
+                    </p>
+                    <a href="mailto:mitja.zdouc@univie.ac.at" class="text-link">
+                        Start a conversation
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Acknowledgements -->
+<section class="acknowledgement-section section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+
+                <div class="text-center mb-5">
+                    <span class="section-kicker">WITH GRATITUDE</span>
+                    <h2 class="section-title mt-2">Acknowledgements</h2>
+                    <p class="section-intro mt-3">
+                        Good science is built on shared knowledge,
+                        collaboration, and the contributions of many.
+                    </p>
+                </div>
+
+                <div class="acknowledgement-card">
+                    <div class="acknowledgement-symbol">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <h3>Thank you for making this work possible.</h3>
+
+                    <p>
+                        We gratefully acknowledge the support and contributions
+                        of the researchers, institutions, collaborators, and
+                        communities whose work has helped shape this project.
+                    </p>
+
+                    <p>
+                        We also recognize the developers and maintainers of
+                        open-source software, scientific databases, and
+                        knowledge infrastructures that make the exploration
+                        and exchange of scientific information possible.
+                    </p>
+
+                    <p class="mb-0">Particular thanks go to:</p>
+                    <ul>
+                        <li><strong>Tobias Kuhn/KnowledgePixels for technical support.</strong></li>
+                        <li><strong>Thomas Rattei/Life Science Compute Cluster (LiSC) of the University of Vienna for hosting the website.</strong></li>
+                    </ul>
+
+                </div>
+
+                <div class="acknowledgement-note mt-4">
+                    <i class="bi bi-lightbulb"></i>
+                    <p class="mb-0">
+                        This project builds upon the principles of open science,
+                        FAIR data, and the collaborative development of
+                        scientific knowledge.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Imprint / Legal Notice -->
+<section class="section-padding" id="imprint">
+    <div class="container">
+
+        <div class="row justify-content-between gy-3 mb-5">
+            <div class="col-lg-6">
+                <span class="section-kicker">LEGAL INFORMATION</span>
+                <h2 class="section-title mt-2">Site notice & Imprint</h2>
+            </div>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Editorial responsibility -->
+            <div class="col-md-12">
+                <div class="legal-card h-100">
+                    <div class="legal-card-header">
+                        <i class="bi bi-pencil-square"></i>
+                        <h3>Editorial responsibility</h3>
+                    </div>
+
+                    <p><strong>Ass. Prof. Dr. Mitja Maximilian Zdouc</strong></p>
+                    <p class="legal-text">
+                        University of Vienna<br>
+                        Department of Pharmaceutical Sciences<br>
+                        Josef-Holaubek-Platz 2<br>
+                        1090 Vienna, AUSTRIA<br>
+                        +43 1 4277 77352
+                    </p>
+
+                    <p class="legal-text">
+                        Email:
+                        <a href="mailto:mitja.zdouc@univie.ac.at">
+                            mitja.zdouc(a)univie.ac.at
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="col-md-6">
+                <div class="legal-card h-100">
+                    <div class="legal-card-header">
+                        <i class="bi bi-info-circle"></i>
+                        <h3>Disclaimer</h3>
+                    </div>
+
+                    <p class="legal-text">
+                        This website is non-commercial and serves purely informative purposes,
+                        with a world-wide audience.
+                    </p>
+
+                    <p class="legal-text">
+                        The information provided on this website is intended
+                        for scientific and educational purposes.
+                    </p>
+
+                    <p class="legal-text">
+                        The text provided on this homepage has been reviewed with great care.
+                        While we strive to ensure that the information is
+                        accurate and up to date, we make no guarantee regarding
+                        its completeness, accuracy, validity, or currency.
+                        We do not accept liability for the contents provided nor accept any liability
+                        for any damages that may have resulted from information that was provided on this website.
+                        Users are encouraged to verify independently and use the information at their own discretion.
+                        All contents are nonbinding.
+                    </p>
+
+                    <p class="legal-text">
+                        All contents of this webpage are nonbinding.
+                        We reserve the right to modify the website and its content in any way,
+                        including deletion and suspension of operation.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- External links -->
+            <div class="col-md-6">
+                <div class="legal-card h-100">
+                    <div class="legal-card-header">
+                        <i class="bi bi-box-arrow-up-right"></i>
+                        <h3>External links</h3>
+                    </div>
+
+                    <p class="legal-text">
+                        This website may contain links to external websites
+                        and scientific resources.
+                    </p>
+
+                    <p class="legal-text">
+                        Links to other websites have been carefully selected.
+                        Linked websites did not display illicit activities at the time of setting links.
+                    </p>
+
+                    <p class="legal-text">
+                        We have no control over the content of external
+                        websites and therefore cannot assume responsibility
+                        for their content.
+                        Should you note any illicit activities on any of the websites linked,
+                        please notify us as soon as possible via the linked email address.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="col-md-6">
+                <div class="legal-card h-100">
+                    <div class="legal-card-header">
+                        <i class="bi bi-c-circle"></i>
+                        <h3>Copyright</h3>
+                    </div>
+
+                    <p class="legal-text">
+                        Unless otherwise stated, the content of this website
+                        is protected by applicable copyright law.
+                    </p>
+
+                    <p class="legal-text">
+                        We take great care to respect the copyright of media owners
+                        and specify it explicitly if the media owner is not the NPs4NPs website.
+                    </p>
+
+                    <p class="legal-text">
+                        Please refer to individual data sources and publications
+                        for their respective licensing and reuse conditions.
+                    </p>
+
+                    <p class="legal-text">
+                        Should you notice any infringement, please contact us as soon as possible,
+                        using the email address indicated on the Contact/Imprint page.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Data protection -->
+            <div class="col-md-6">
+                <div class="legal-card h-100">
+                    <div class="legal-card-header">
+                        <i class="bi bi-shield-lock"></i>
+                        <h3>Data protection</h3>
+                    </div>
+
+                    <p class="legal-text">
+                        This website does not collect any personal data from visitors and does not set any cookies
+                        except the ones that are needed for the functioning of the website.
+                        We do not provide any personal information to any third parties.
+                        All persons displayed or mentioned on this website have consented
+                        to the publication of their data and may withdraw their consent at any time.
+                    </p>
+
+                    <p class="legal-text">
+                        Should you notice any privacy violation or have any questions regarding data protection,
+                        please contact us as soon as possible, using the email address indicated.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="legal-update mt-4">
+            <i class="bi bi-calendar3 me-2"></i>
+            Last updated: November 27, 2026
+        </div>
+
+    </div>
+</section>
 
 {% endblock %}
